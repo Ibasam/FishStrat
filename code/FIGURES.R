@@ -715,11 +715,20 @@ title("30% dispersal - Selective MSW")
 
 #####------------------------ MATURATION STRATEGY ----------------------######
 
-x<-rMSW
-ylab <- "Ratio MSW/1SW"
+#x<-rMSW
+#ylab <- "Ratio MSW/1SW"
 #ylim=c(-1.5,-1.3) #Relative
-ylim=c(0,0.3)
-horizLines <- c(0.05,0.15,0.25)
+#ylim=c(0,0.3)
+#horizLines <- c(0.05,0.15,0.25)
+
+meanAge <- lapply(rMSW, function (x) {
+  (2*x +1) / (x+1)
+})  
+
+x<-meanAge
+ylab <- "Mean age at maturation"
+ylim= c(1,1.3)
+horizLines <- c(1.1,1.2)
 
 #### Disp. 5%
 scnToPlot <- c(2,4,6)
